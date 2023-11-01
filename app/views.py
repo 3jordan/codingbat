@@ -5,7 +5,7 @@ from django.http.request import HttpRequest
 # Create your views here.
 
 
-def warmup_one_view(response: HttpResponse, number):
+def warmup_one_view(request: HttpRequest, number) -> HttpResponse:
     if abs(100 - number) <= 10:
         return HttpResponse(True)
     elif abs(200 - number) <= 10:
@@ -14,7 +14,7 @@ def warmup_one_view(response: HttpResponse, number):
         return HttpResponse(False)
 
 
-def warmup_two_view(response: HttpResponse, word):
+def warmup_two_view(request: HttpRequest, word) -> HttpResponse:
     sploded_word = ""
 
     for letter in range(0, len(word)):
@@ -22,7 +22,7 @@ def warmup_two_view(response: HttpResponse, word):
     return HttpResponse(sploded_word)
 
 
-def cat_dog_view(response: HttpResponse, string):
+def cat_dog_view(request: HttpRequest, string) -> HttpResponse:
     cat_count = string.count("cat")
     dog_count = string.count("dog")
 
@@ -32,7 +32,7 @@ def cat_dog_view(response: HttpResponse, string):
         return HttpResponse(False)
 
 
-def logic_two_view(response: HttpResponse, numberA, numberB, numberC):
+def logic_two_view(request: HttpRequest, numberA, numberB, numberC) -> HttpResponse:
     add_list = []
     dupe_list = []
 
